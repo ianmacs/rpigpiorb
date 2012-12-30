@@ -3,8 +3,8 @@ class RPi_GPIO_Pin
   
   EXPORT="/sys/class/gpio/export"
   UNEXPORT="/sys/class/gpio/unexport"
-  VALUE="sys/class/gpio/gpio%d/value"
-  DIRECTION="sys/class/gpio/gpio%d/direction"
+  VALUE="/sys/class/gpio/gpio%d/value"
+  DIRECTION="/sys/class/gpio/gpio%d/direction"
     
   
   # Class method that creates a finalizer proc. The finalizer calls unexport. 
