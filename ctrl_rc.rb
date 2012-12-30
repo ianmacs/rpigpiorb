@@ -5,15 +5,22 @@ require "./rpi_gpio.rb"
 # It is important that backwards and forwards is never activated at the same time,
 # else the H-Bridge would short circuit the driving battery. Same for left and right.
 class RC_Car
+  # The finalizer for the RC car sets sets all parameter gpio pins to low
+  def RC_Car.create_finalizer(*gpio_pins)
+    return proc{gpio_pins.each{|gpio_pin| gpio_pin.set(0)}}
+  end
   # Initializer defines which GPIO pin is connected to which H-Bridge base.
   def initialize(backwards_pin=24,
                 forwards_pin=23,
                 right_pin=22,
                 left_pin=17)
-    @backwards_pin = RPi_GPIO_Pin.new(backwards_pin,"out")
-    @forwards_pin = RPi_GPIO_Pin.new(forwards_pin,"out")
-    @right_pin = RPi_GPIO_Pin.new(right_pin,"out")
-    @left_pin = RPi_GPIO_Pin.new(left_pin,"out")
+    @pins = [
+      @backwards_pin = RPi_GPIO_Pin.new(backwards_pin,"out"),
+      @forwards_pin = RPi_GPIO_Pin.new(forwards_pin,"out"),
+      @right_pin = RPi_GPIO_Pin.new(right_pin,"out"),
+      @left_pin = RPi_GPIO_Pin.new(left_pin,"out"),
+    ]
+    ObjectSpace.define_finalizer(self, RC_Car.create_finalizer(*@pins))
     drive(0)
     steer(0)
   end
