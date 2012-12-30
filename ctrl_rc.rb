@@ -1,5 +1,5 @@
 # Controls an RC car
-require "rpi_gpio"
+require "./rpi_gpio.rb"
 
 # operates an RC Car using 4 discrete GPIO pins like the RX-2B receiver chip does
 # It is important that backwards and forwards is never activated at the same time,
