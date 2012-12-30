@@ -1,3 +1,6 @@
+#!/usr/bin/env ruby
+# This file is in the public domain. Share and enjoy.
+
 # Class for controlling one input/output pin on raspberry pi
 class RPi_GPIO_Pin
   
