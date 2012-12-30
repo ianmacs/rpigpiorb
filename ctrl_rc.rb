@@ -1,4 +1,6 @@
+#!/usr/bin/env ruby
 # Controls an RC car
+# This file is in the public domain. Share and enjoy.
 require "./rpi_gpio.rb"
 
 # operates an RC Car using 4 discrete GPIO pins like the RX-2B receiver chip does
