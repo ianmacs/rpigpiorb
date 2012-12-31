@@ -11,5 +11,9 @@ class OSC_RC < RC_Car_Speed
     
     @server.run
   end
+end
+
+if __FILE__ == $0
+  rc=OSC_RC.new
   
 end
