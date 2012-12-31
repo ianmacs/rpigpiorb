@@ -74,11 +74,11 @@ class RC_Car_Speed < RC_Car
     @speed_counter = 0
     @speed = 0
     @turn = :straight
-    @port = port
-    @interface = interface
+#    @port = port
+#    @interface = interface
     @exit_threads = false;
     @gpio_thread = Thread.new{control_gpio}
-    @udp_thread = Thread.new{receive_udp}
+#    @udp_thread = Thread.new{receive_udp}
   end
   
   # determines if the motor needs to be switched on or off to achieve the given speed
