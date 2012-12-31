@@ -4,8 +4,8 @@ module OSC
   class  Server
     def initialize( host, port )
       @socket = UDPSocket.new
-      ip =  IPAddr.new(host).hton + IPAddr.new("0.0.0.0").hton
-      @socket.setsockopt(Socket::IPPROTO_IP, Socket::IP_ADD_MEMBERSHIP, ip)
+      #ip =  IPAddr.new(host).hton + IPAddr.new("0.0.0.0").hton
+      #@socket.setsockopt(Socket::IPPROTO_IP, Socket::IP_ADD_MEMBERSHIP, ip)
       
       @socket.bind( host, port )
       @matchers = []
