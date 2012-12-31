@@ -7,6 +7,16 @@ class OSC_RC < RC_Car_Speed
     
     @server.add_method /.*/ do | message |
       puts "#{message.ip_address}:#{message.ip_port} -- #{message.address} -- #{message.to_a}"
+      x,y = message.to_a
+      direction = :straight
+      if x < 0.3
+        direction = :left
+      end
+      if x > 0.7
+        direction = :right
+      end
+      speed = (0.5-y) * 25
+      self.control(12,speed,direction)
     end
     
     @server.run
