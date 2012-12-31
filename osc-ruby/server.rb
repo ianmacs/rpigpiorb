@@ -7,7 +7,7 @@ module OSC
       ip =  IPAddr.new(host).hton + IPAddr.new("0.0.0.0").hton
       @socket.setsockopt(Socket::IPPROTO_IP, Socket::IP_ADD_MEMBERSHIP, ip)
       
-      @socket.bind( Socket::INADDR_ANY, port )
+      @socket.bind( host, port )
       @matchers = []
       @queue = Queue.new
     end
