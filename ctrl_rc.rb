@@ -15,8 +15,8 @@ class RC_Car
   # Initializer defines which GPIO pin is connected to which H-Bridge base.
   def initialize(backwards_pin=24,
                 forwards_pin=23,
-                right_pin=22,
-                left_pin=17)
+                right_pin=17,
+                left_pin=22)
     @pins = [
       @backwards_pin = RPi_GPIO_Pin.new(backwards_pin,"out"),
       @forwards_pin = RPi_GPIO_Pin.new(forwards_pin,"out"),

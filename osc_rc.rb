@@ -2,7 +2,7 @@ require "./ctrl_rc.rb"
 require "./osc-ruby/osc-ruby"
 
 class OSC_RC < RC_Car_Speed
-  def initialize(host="224.0.0.1", port=10000, max_speed=12, timeout=1, *gpio_pins)
+  def initialize(host="224.0.0.1", port=10000, max_speed=12, timeout=0.64, *gpio_pins)
     super(max_speed, timeout, *gpio_pins)
     
     @server = OSC::Server.new(host, port)
