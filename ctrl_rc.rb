@@ -92,6 +92,7 @@ class RC_Car_Speed < RC_Car
     return ! motor_state(speed, max_speed, speed_counter)
   end
   def control(max_speed, speed, turn)
+    p [max_speed, speed, turn]
     @mutex.synchronize {
       @max_speed = max_speed
       @speed = speed
